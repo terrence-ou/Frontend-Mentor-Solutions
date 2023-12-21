@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: hsl(234 29% 20%);
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  color: hsl(234 29% 20%);
+  height: 30rem;
+  width: 45rem;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+#contents {
+  box-sizing: border-box;
+  width: 55%;
+  padding: 0 2rem;
+
+  font-size: 12px;
+}
+
+#benefits h2{
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+#benefits ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+#benefits li{
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#benefits li::before{
+  content: url("./assets/images/icon-list.svg");
+  margin-right: 0.6rem;
+}
+
+#user_input{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#image {
+  height: 100%;
+  width: 45%;
+  background-image: url("./assets/images/illustration-sign-up-desktop.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 0;
+}
