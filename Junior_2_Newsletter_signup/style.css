@@ -23,6 +23,7 @@ body {
   align-items: center;
 }
 
+
 #contents {
   box-sizing: border-box;
   width: 55%;
@@ -139,8 +140,10 @@ button:hover{
 dialog {
   width: 28rem;
   box-sizing: border-box;
+  border: none;
   padding: 3rem 4rem;
   border-radius: 2rem;
+
 }
 
 dialog h1{
@@ -157,3 +160,74 @@ dialog button{
   margin-top: 2rem;
 }
 
+
+@media screen and (max-width:375px){
+  .container {
+    height: 100%;
+    width: 100%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    border-radius: 0;
+    padding: 0;
+  }
+  
+  #contents {
+    width: 100%;
+    padding: 0 2rem;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+
+  #benefits li{
+    padding: 0.6rem 0rem;
+    align-items: start;
+  }
+  
+  #user_input input{
+    height: 3.2rem;
+  }
+
+  button{
+    height: 3.2rem;
+  }
+
+
+  #image {
+    height: 35%;
+    width: 100%;
+    background-image: url("./assets/images/illustration-sign-up-mobile.svg");
+    border-radius: 1.0rem;
+    margin-bottom: 2rem;
+  }
+  
+  ::backdrop{
+    background: white;
+  }
+
+  dialog{
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    font-size: 14px;
+  }
+
+  dialog div{
+    margin-bottom: 10rem;
+  }
+  
+  dialog h1{
+    font-size: 40px;
+  }
+
+  dialog p{
+    line-height: 1.4;
+  }
+
+  dialog button{
+    margin: 4rem 0rem 3rem 0rem;
+  }
+}
