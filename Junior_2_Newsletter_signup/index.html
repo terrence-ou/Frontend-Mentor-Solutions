@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
     <title>Frontend Mentor | Newsletter sign-up form with success message</title>
   </head>
 
@@ -24,8 +23,11 @@
         </div>
 
         <div id="user_input">
-          <label>Email address</label>
-          <input type="email" placeholder="email@company.com"/>
+          <label>
+            <span>Email address</span>
+            <span class="warning hidden">Valid email required</span>
+          </label>
+          <input id="email_input" type="email" placeholder="email@company.com"/>
           <button>Subscribe to monthly newsletter</button>
         </div>
       </section>
@@ -33,5 +35,14 @@
       <section id="image">
       </section>
     </div>
+
+    <dialog>
+      <img src="./assets/images/icon-success.svg" alt="success icon" />
+      <h1>Thanks for subscribing!</h1>
+      <p>A confirmation email has been sent to <strong></strong>. Please open it and click the button inside to confirm your subscription.</p>
+      <button>Dismiss message</button>
+    </dialog>
+
+    <script src="script.js"></script>
   </body>
 </html>
