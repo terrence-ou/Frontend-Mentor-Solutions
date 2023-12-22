@@ -2,6 +2,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -143,7 +144,6 @@ dialog {
   border: none;
   padding: 3rem 4rem;
   border-radius: 2rem;
-
 }
 
 dialog h1{
@@ -160,8 +160,27 @@ dialog button{
   margin-top: 2rem;
 }
 
+.attribution {
+  position: relative;
+  color: white;
+}
+
+.attribution p{
+  text-align: center;
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.attribution a{
+  color: hsl(228, 45%, 44%);
+}
+
 
 @media screen and (max-width:375px){
+  body {
+    background: white;
+  }
+
   .container {
     height: 100%;
     width: 100%;
@@ -205,7 +224,7 @@ dialog button{
     background: white;
   }
 
-  dialog{
+  dialog[open]{
     width: 100%;
     height: 100%;
     padding: 0 1rem;
@@ -230,4 +249,9 @@ dialog button{
   dialog button{
     margin: 4rem 0rem 3rem 0rem;
   }
+
+  .attribution p{
+    color:black;
+  }
 }
+
