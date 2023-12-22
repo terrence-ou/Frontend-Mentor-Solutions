@@ -58,6 +58,40 @@ body {
   flex-direction: column;
 }
 
+#user_input label{
+  font-weight: bold;
+  font-size: 11px;
+}
+
+#user_input input{
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: solid;
+  border-width: 1px;
+  border-color: darkgray;
+
+  box-sizing: border-box;
+  padding: 0 18px;
+}
+
+#user_input input:focus{
+  outline:none;
+}
+
+#user_input input:invalid{
+  background: rgba(255,99,71,0.2);
+  border-color: tomato;
+  color: tomato;
+}
+
+#user_input button{
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  background: hsl(234 29% 20%);
+}
+
 
 #image {
   height: 100%;
