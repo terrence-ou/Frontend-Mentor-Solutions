@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
 body {
+  height: 100vh;
   background: hsl(47 88% 63%);
   font-family: "Figtree", sans-serif;
-}
-
-main {
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
 }
 
 #container {
   box-sizing: border-box;
   margin: auto auto;
-  width: 30rem;
+  width: 25rem;
   background: white;
   border: solid;
   border-radius: 1.5rem;
@@ -22,5 +22,112 @@ main {
   display: flex;
   flex-direction: column;
   
+  filter: drop-shadow(0.5rem 0.5rem 0rem black);
+  transition: .2s;
+}
+
+#container:hover {
   filter: drop-shadow(1.0rem 1.0rem 0rem black);
+}
+
+#container #blog-snapshot{
+  border-radius: 1.0rem;
+  object-fit: cover;
+}
+
+#container>span {
+  width: 23%;
+  border-radius: 0.3rem;
+  background: hsl(47 88% 63%);
+  text-align: center;
+  font-weight: 600;
+  margin: 1.5rem 0 1.0rem 0;
+  padding: 0.2rem 0;
+}
+
+#container #date{
+  padding: 0;
+  margin: 0;
+}
+
+#container button {
+  font-size: 26px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-weight: 700;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+#container button:hover {
+  color: hsl(47 88% 63%);
+  cursor: pointer;
+  transition: .2s;
+}
+
+#container #abstract{
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 1.2;
+  margin: 0;
+  color: darkgray;
+}
+
+#container #author{
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+#author img{
+  height: 2rem;
+}
+
+#author h3{
+  margin: 0 0 0 0.7rem;
+  font-size: 14px;
+}
+
+.attribution {
+  position: relative;
+  color: black;
+}
+
+.attribution p{
+  text-align: center;
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.attribution a{
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width:375px){
+  #container{
+    width: 90vw;
+    padding: 1.5rem;
+  }
+
+  #container>span{
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  #container #date{
+    font-size: 12px;
+  }
+
+  #container button{
+    font-size: 20px;
+    margin: 1.0rem 0;
+  }
+
+  #container #abstract{
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+
 }
