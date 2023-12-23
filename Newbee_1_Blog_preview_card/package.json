@@ -1,0 +1,11 @@
+{
+  "name": "newbee_1_blog_preview_card",
+  "version": "1.0.0",
+  "description": "Frontend Mentor challenge - blog preview card",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tingsong Ou",
+  "license": "ISC"
+}
