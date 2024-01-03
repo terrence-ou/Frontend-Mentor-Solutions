@@ -2,11 +2,11 @@ import { useState } from "react";
 import Header from "./components/Header.jsx";
 
 function App() {
-  const [font, setFont] = useState("serif");
+  const [fontType, setFontType] = useState("font-sans");
 
   return (
-    <div className={"mx-auto w-page-width mt-[58px] " + `font-${font}`}>
-      <Header font={font} setFont={setFont} />
+    <div className={"mx-auto w-page-width mt-[58px] " + fontType}>
+      <Header fontType={fontType} setFontType={setFontType} />
     </div>
   );
 }

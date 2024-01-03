@@ -6,12 +6,12 @@ import lightMoon from "../icons/icon-moon.svg";
 import darkMoon from "../icons/icon-moon-dark.svg";
 
 const fontMapping = {
-  sans: "Sans Serif",
-  serif: "Serif",
-  mono: "Mono",
+  "font-sans": "Sans Serif",
+  "font-serif": "Serif",
+  "font-mono": "Mono",
 };
 
-export default function Header({ font, setFont }) {
+export default function Header({ fontType, setFontType }) {
   const [darkModeOn, setDarkModeOn] = useState(false);
   const [fontMenuVisible, setFontMenuVisible] = useState(false);
 
@@ -24,8 +24,8 @@ export default function Header({ font, setFont }) {
     setFontMenuVisible((prevVisibility) => !prevVisibility);
   }
 
-  function handleFontSelection(font) {
-    setFont(font);
+  function handleFontSelection(currType) {
+    setFontType(currType);
     setFontMenuVisible(false);
   }
 
@@ -42,14 +42,14 @@ export default function Header({ font, setFont }) {
   // handle font style
   function getFontSelections() {
     return (
-      <div className="absolute flex flex-col top-[30px] w-40 right-8 p-4 rounded-[1rem] font-semibold bg-white shadow-[0px_6px_16px_rgb(0,0,0,0.1)]">
+      <div className="absolute flex flex-col top-[30px] w-40 right-8 p-4 rounded-[1rem] bg-white dark:bg-dark-300">
         {Object.entries(fontMapping).map(([key, item]) => (
           <button
             key={key}
             onClick={() => handleFontSelection(key)}
             className={
-              "hover:text-light-purple text-start leading-[24px] py-[8px] duration-200 " +
-              `font-${key}`
+              "hover:text-light-purple dark:text-white text-start leading-[24px] py-[8px] font-semibold " +
+              key
             }
           >
             {item}
@@ -68,7 +68,7 @@ export default function Header({ font, setFont }) {
             className="flex justify-end gap-[16px] w-[120px] mr-8 font-bold text-dark-500 dark:text-white"
             onClick={handleMenuVisibility}
           >
-            <span>{fontMapping[font]}</span>
+            <span>{fontMapping[fontType]}</span>
             <img src={dropdownIcon} alt="dropdown icon" className="my-auto" />
           </button>
           {fontMenuVisible && getFontSelections()}
