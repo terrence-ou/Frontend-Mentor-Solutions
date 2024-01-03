@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import headerIcon from "../icons/logo.svg";
-import dropdownIcon from "../icons/icon-arrow-down.svg";
-import lightMoon from "../icons/icon-moon.svg";
-import darkMoon from "../icons/icon-moon-dark.svg";
+import headerIcon from "../assets/icons/logo.svg";
+import dropdownIcon from "../assets/icons/icon-arrow-down.svg";
+import lightMoon from "../assets/icons/icon-moon.svg";
+import darkMoon from "../assets/icons/icon-moon-dark.svg";
 
 const fontMapping = {
   "font-sans": "Sans Serif",
@@ -12,6 +12,8 @@ const fontMapping = {
 };
 
 export default function Header({ fontType, setFontType }) {
+  // TODO: add system theme when the application starts
+
   const [darkModeOn, setDarkModeOn] = useState(false);
   const [fontMenuVisible, setFontMenuVisible] = useState(false);
 
@@ -42,13 +44,13 @@ export default function Header({ fontType, setFontType }) {
   // handle font style
   function getFontSelections() {
     return (
-      <div className="absolute flex flex-col top-[30px] w-40 right-8 p-4 rounded-[1rem] bg-white dark:bg-dark-300">
+      <div className="absolute flex flex-col top-[40px] w-40 right-8 px-4 py-2 rounded-[1rem] bg-white dark:bg-dark-300 focus:outline-none shadow-light-scheme dark:shadow-dark-scheme z-20">
         {Object.entries(fontMapping).map(([key, item]) => (
           <button
             key={key}
             onClick={() => handleFontSelection(key)}
             className={
-              "hover:text-light-purple dark:text-white text-start leading-[24px] py-[8px] font-semibold " +
+              "hover:text-light-purple dark:text-white text-start leading-[24px] py-[8px] duration-200 font-semibold " +
               key
             }
           >
@@ -65,7 +67,7 @@ export default function Header({ fontType, setFontType }) {
       <div className="flex my-auto">
         <div className="relative">
           <button
-            className="flex justify-end gap-[16px] w-[120px] mr-8 font-bold text-dark-500 dark:text-white"
+            className="flex justify-end gap-[16px] w-[120px] mr-8 font-bold text-dark-500 dark:text-white focus:outline-none"
             onClick={handleMenuVisibility}
           >
             <span>{fontMapping[fontType]}</span>
@@ -75,7 +77,7 @@ export default function Header({ fontType, setFontType }) {
         </div>
         <div className="h-[20px] ml-8 my-auto flex gap-4">
           <button
-            className="relative box-border h-full w-[40px] rounded-full bg-gray-700 dark:bg-light-purple"
+            className="relative box-border h-full w-[40px] rounded-full bg-gray-700 dark:bg-light-purple focus:outline-none"
             onClick={handleToggleDarkMode}
           >
             <span

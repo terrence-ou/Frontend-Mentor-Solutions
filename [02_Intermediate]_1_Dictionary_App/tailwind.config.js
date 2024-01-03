@@ -35,6 +35,10 @@ export default {
         "page-width": "737px",
         "header-height": "36.5px",
       },
+      boxShadow: {
+        "light-scheme": "0px 2px 25px rgba(0, 0, 0, 0.1)",
+        "dark-scheme": "0px 2px 25px rgb(164, 69, 237)",
+      },
     },
   },
   plugins: [],
