@@ -26,7 +26,12 @@ function App() {
   }, [requestDictResult]);
 
   return (
-    <div className={"mx-auto w-page-width mt-[58px] " + fontType}>
+    <div
+      className={
+        "mx-auto lg:w-page-width-lg md:w-page-width-md sm:w-page-width-sm mt-[58px] " +
+        fontType
+      }
+    >
       <Header fontType={fontType} setFontType={setFontType} />
       <Input setResult={setResult} />
       {result && result !== "error" && <DictResult result={result} />}

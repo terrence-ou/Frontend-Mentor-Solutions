@@ -42,7 +42,7 @@ export default function Input({ setResult }) {
     >
       <input
         className={
-          "box-border px-6 h-16 w-full rounded-xl bg-gray-300 dark:bg-dark-700 text-[20px] text-dark-500 dark:text-white font-semibold tracking-wide focus:outline focus:outline-light-purple" +
+          "box-border px-6 md:h-input-h sm:h-input-h-sm w-full rounded-xl bg-gray-300 dark:bg-dark-700 md:text-heading-lg sm:text-heading-sm text-dark-500 dark:text-white font-semibold tracking-wide focus:outline focus:outline-light-purple" +
           (inputValid ? "" : " outline outline-1 outline-red-tomato")
         }
         placeholder="Search for any word..."
@@ -53,7 +53,7 @@ export default function Input({ setResult }) {
           Whoops, can't be empty...
         </p>
       )}
-      <button className="absolute w-4 right-5 top-[25px]">
+      <button className="absolute w-4 right-5 md:top-[25px] sm:top-[18px]">
         <img src={searchIcon} alt="search button icon" />
       </button>
     </form>

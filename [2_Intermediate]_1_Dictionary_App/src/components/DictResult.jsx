@@ -5,10 +5,12 @@ function getHeadElements(word, phonetic, audio) {
   return (
     <section className="flex justify-between">
       <div>
-        <h1 className="text-[64px] font-bold text-dark-500 dark:text-white">
+        <h1 className="md:text-title-lg sm:text-title-sm font-bold text-dark-500 dark:text-white">
           {word}
         </h1>
-        <p className="text-[24px] text-light-purple font-light">{phonetic}</p>
+        <p className="md:text-subtitle-lg sm:text-subtitle-sm text-light-purple font-light">
+          {phonetic}
+        </p>
       </div>
       <button disabled={audio === undefined} onClick={() => audio.play()}>
         <img src={playIcon} alt="play icon" />
@@ -21,13 +23,15 @@ function getMeaning(meaning, index) {
   return (
     <section key={index}>
       <div className="flex gap-10 py-10">
-        <h3 className="text-[24px] h-[26px] leading-[100%] italic font-semibold text-dark-500 dark:text-white">
+        <h3 className="md:text-subtitle-lg sm:text-subtitle-sm h-[26px] leading-[100%] italic font-semibold text-dark-500 dark:text-white">
           {meaning.partOfSpeech}
         </h3>
         <div className="w-full h-[1px] bg-gray-500 my-auto"></div>
       </div>
-      <p className="text-[20px] text-gray-700">Meaning</p>
-      <ul className="pl-12 text-[18px] py-6 custom-bullet">
+      <p className="md:text-heading-lg sm:text-heading-sm text-gray-700">
+        Meaning
+      </p>
+      <ul className="pl-12 md:text-body-lg sm:text-body-sm py-6 custom-bullet">
         {meaning.definitions.map((definition) => {
           const key = Math.random();
           return (
@@ -41,9 +45,9 @@ function getMeaning(meaning, index) {
         })}
       </ul>
       {meaning.synonyms.length !== 0 && (
-        <p className="mt-4">
-          <span className="text-[20px] text-gray-700">Synonyms</span>
-          <span className="text-[20px] pl-6 text-light-purple font-semibold">
+        <p className="mt-4 md:text-heading-lg sm:text-heading-sm">
+          <span className="text-gray-700">Synonyms</span>
+          <span className="pl-6 text-light-purple font-semibold">
             {meaning.synonyms.join(", ")}
           </span>
         </p>
@@ -57,7 +61,7 @@ function getSource(url) {
     <section>
       <div className="w-full h-[1px] my-2 bg-gray-500"></div>
       <div className="flex gap-8 py-3">
-        <p className="text-gray-700 text-[14px]">Source</p>
+        <p className="text-gray-700 text-footer">Source</p>
         <a className="text-dark-500 dark:text-white text-[14px]" href={url}>
           {url}
           <img

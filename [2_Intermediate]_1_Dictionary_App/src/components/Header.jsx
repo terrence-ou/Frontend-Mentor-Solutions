@@ -62,10 +62,10 @@ export default function Header({ fontType, setFontType }) {
   }
 
   return (
-    <div className="h-header-height flex justify-between align-middle text-[18px]">
+    <div className="md:h-header-height sm:h-header-height-sm flex justify-between align-middle md:text-body-lg sm:text-body-sm">
       <img src={headerIcon} alt="Dictionary app icon" />
       <div className="flex my-auto">
-        <div className="relative">
+        <div className="relative border-r-gray-700 border-r-[1px]">
           <button
             className="flex justify-end gap-[16px] w-[120px] mr-8 font-bold text-dark-500 dark:text-white focus:outline-none"
             onClick={handleMenuVisibility}
