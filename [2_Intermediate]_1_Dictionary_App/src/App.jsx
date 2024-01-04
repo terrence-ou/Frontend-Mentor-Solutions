@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header.jsx";
 import Input from "./components/Input.jsx";
 import DictResult from "./components/DictResult.jsx";
+import Error from "./components/Error.jsx";
 
 import { requestDictResult } from "./http.js";
 
@@ -18,6 +19,7 @@ function App() {
         setResult(definition);
       } catch (error) {
         console.error(err);
+        setResult("error");
       }
     }
     if (result === undefined) getResult();
@@ -27,7 +29,8 @@ function App() {
     <div className={"mx-auto w-page-width mt-[58px] " + fontType}>
       <Header fontType={fontType} setFontType={setFontType} />
       <Input setResult={setResult} />
-      {result && <DictResult result={result} />}
+      {result && result !== "error" && <DictResult result={result} />}
+      {result === "error" && <Error />}
     </div>
   );
 }

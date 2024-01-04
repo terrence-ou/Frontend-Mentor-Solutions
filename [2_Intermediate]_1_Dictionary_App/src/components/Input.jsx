@@ -18,6 +18,7 @@ export default function Input({ setResult }) {
         setResult(definition);
       } catch (error) {
         console.log(error);
+        setResult("error");
       }
     }
   }

@@ -1,7 +1,7 @@
 import playIcon from "../assets/icons/icon-play.svg";
 import linkIcon from "../assets/icons/icon-new-window.svg";
 
-function getHeadElements(word, phonetic, audio = "") {
+function getHeadElements(word, phonetic, audio) {
   return (
     <section className="flex justify-between">
       <div>
@@ -10,7 +10,7 @@ function getHeadElements(word, phonetic, audio = "") {
         </h1>
         <p className="text-[24px] text-light-purple font-light">{phonetic}</p>
       </div>
-      <button>
+      <button disabled={audio === undefined} onClick={() => audio.play()}>
         <img src={playIcon} alt="play icon" />
       </button>
     </section>
@@ -58,7 +58,7 @@ function getSource(url) {
       <div className="w-full h-[1px] my-2 bg-gray-500"></div>
       <div className="flex gap-8 py-3">
         <p className="text-gray-700 text-[14px]">Source</p>
-        <a className="text-dark-500 text-[14px]" href={url}>
+        <a className="text-dark-500 dark:text-white text-[14px]" href={url}>
           {url}
           <img
             className="inline px-2"
@@ -73,11 +73,15 @@ function getSource(url) {
 
 export default function DictResult({ result }) {
   const { word, meanings, phonetic, phonetics, sourceUrls } = result[0];
-  const audiofiles = phonetics.find((item) => item.audio !== "");
+  const audiofile = phonetics.find((item) => item.audio !== "");
+  let audio = undefined;
+  if (audiofile) {
+    audio = new Audio(audiofile.audio);
+  }
 
   return (
     <div>
-      {getHeadElements(word, phonetic)}
+      {getHeadElements(word, phonetic, audio)}
       {meanings.map((meaning, index) => getMeaning(meaning, index))}
       {getSource(sourceUrls[0])}
     </div>
