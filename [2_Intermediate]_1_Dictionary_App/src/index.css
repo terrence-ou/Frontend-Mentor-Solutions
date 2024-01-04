@@ -3,3 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-bullet li::before {
+  content: '•'; /* Unicode character for bullet */
+  color: #A445ED; /* Your desired bullet color */
+  display: inline-block;
+  width: 1.5em; /* Adjust width to align bullets */
+  margin-left: -1.5rem;
+}
