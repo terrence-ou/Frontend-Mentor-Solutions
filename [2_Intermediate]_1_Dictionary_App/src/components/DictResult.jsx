@@ -1,4 +1,5 @@
 import playIcon from "../assets/icons/icon-play.svg";
+import linkIcon from "../assets/icons/icon-new-window.svg";
 
 function getHeadElements(word, phonetic, audio = "") {
   return (
@@ -23,7 +24,7 @@ function getMeaning(meaning, index) {
         <h3 className="text-[24px] h-[26px] leading-[100%] italic font-semibold text-dark-500 dark:text-white">
           {meaning.partOfSpeech}
         </h3>
-        <div className="w-full h-[2px] bg-gray-500 my-auto"></div>
+        <div className="w-full h-[1px] bg-gray-500 my-auto"></div>
       </div>
       <p className="text-[20px] text-gray-700">Meaning</p>
       <ul className="pl-12 text-[18px] py-6 custom-bullet">
@@ -43,7 +44,7 @@ function getMeaning(meaning, index) {
         <p className="mt-4">
           <span className="text-[20px] text-gray-700">Synonyms</span>
           <span className="text-[20px] pl-6 text-light-purple font-semibold">
-            {meaning.synonyms}
+            {meaning.synonyms.join(", ")}
           </span>
         </p>
       )}
@@ -51,15 +52,34 @@ function getMeaning(meaning, index) {
   );
 }
 
+function getSource(url) {
+  return (
+    <section>
+      <div className="w-full h-[1px] my-2 bg-gray-500"></div>
+      <div className="flex gap-8 py-3">
+        <p className="text-gray-700 text-[14px]">Source</p>
+        <a className="text-dark-500 text-[14px]" href={url}>
+          {url}
+          <img
+            className="inline px-2"
+            src={linkIcon}
+            alt="open link in blank page icon"
+          />
+        </a>
+      </div>
+    </section>
+  );
+}
+
 export default function DictResult({ result }) {
   const { word, meanings, phonetic, phonetics, sourceUrls } = result[0];
   const audiofiles = phonetics.find((item) => item.audio !== "");
-  console.log(meanings);
 
   return (
     <div>
       {getHeadElements(word, phonetic)}
       {meanings.map((meaning, index) => getMeaning(meaning, index))}
+      {getSource(sourceUrls[0])}
     </div>
   );
 }

@@ -10,25 +10,23 @@ function App() {
   const [dictContent, setDictContent] = useState(undefined);
   const [result, setResult] = useState(undefined);
 
+  // get open-screen content: the definition of the word "dictionary"
   useEffect(() => {
     async function getResult() {
       try {
-        const output = await fetch(
-          "https://api.dictionaryapi.dev/api/v2/entries/en/keyboard",
-        ).then((data) => data.json());
-        setResult(output);
+        const definition = await requestDictResult("dictionary");
+        setResult(definition);
       } catch (error) {
         console.error(err);
       }
     }
-
-    getResult();
-  }, []);
+    if (result === undefined) getResult();
+  }, [requestDictResult]);
 
   return (
     <div className={"mx-auto w-page-width mt-[58px] " + fontType}>
       <Header fontType={fontType} setFontType={setFontType} />
-      <Input />
+      <Input setResult={setResult} />
       {result && <DictResult result={result} />}
     </div>
   );

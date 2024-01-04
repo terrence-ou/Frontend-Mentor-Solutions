@@ -1,17 +1,24 @@
 import { useState, useRef, useEffect } from "react";
+import { requestDictResult } from "../http.js";
 
 import searchIcon from "../assets/icons/icon-search.svg";
 
-export default function Input() {
+export default function Input({ setResult }) {
   const [inputValid, setInputValid] = useState(true);
   const inputRef = useRef();
 
-  function handleSubmission(event) {
+  async function handleSubmission(event) {
     event.preventDefault();
     const word = inputRef.current.value;
     if (word.length === 0) {
       setInputValid(false);
     } else {
+      try {
+        const definition = await requestDictResult(word);
+        setResult(definition);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
